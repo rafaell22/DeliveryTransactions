@@ -23,45 +23,48 @@ pool.on('error', (errorPgClient) => {
 });
 
 /**
- * Insert delivery data into DB
- * @param {Object} data - delivery data to be inserted
- * @param {string} data.deliveryId - Type uuid
- * @param {string} data.courierId - Type uuid
- * @param {string} data.createdTimestamp - IsoString
- * @param {number} data.value - value earned by the delivery
+ * Get delivery data from DB
+ * @param {Object} search - delivery data to be inserted
+ * @param {string} search.courierId - Type uuid
+ * @param {string} search.from - IsoString
+ * @param {string} search.to - IsoString
  */
-async function insert(data) {
+async function select(search) {
   console.log('Building query...');
   const query = `
-    INSERT INTO
+    SELECT
+        "deliveryId",
+        "courierId",
+        "createdTimestamp",
+        "value"
+      FROM
         sc_courier_transactions.tb_deliveries
-      VALUES
-        ($1, $2, $3, $4)
-      ON CONFLICT("deliveryId") 
-        -- there could be situations when a queue sends the same message multiple times
-        DO NOTHING;
-    ;
-  `;
+      WHERE
+        "courierId" = $1 AND
+        "createdTimestamp" BETWEEN $2 AND $3
+  ;`;
 
   const params = [
-    data.deliveryId,
-    data.courierId,
-    data.createdTimestamp,
-    data.value,
+    search.courierId,
+    search.from,
+    search.to,
   ]
   console.log('Done!');
 
   console.log('Sending query...');
+  let result;
   try {
-    await pool.query(query, params);
-  } catch(errorInsertingDelivery) {
-    throw errorInsertingDelivery;
+    result = await pool.query(query, params);
+  } catch(errorGettingDeliveries) {
+    throw errorGettingDeliveries;
   }
   console.log('Done!')
+
+  return result;
 }
 
 module.exports = {
   delivery: {
-    insert,
+    select,
   },
 };

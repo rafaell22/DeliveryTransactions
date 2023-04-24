@@ -3,17 +3,18 @@
 const Joi = require('joi');
 
 /**
- * Validate the content of the search parameters (valid JSON and fields)
+ * Validate the content of the search parameters 
  * @param {Object} search - parameters to be validated
  * @param {string} search.from - start datetime
  * @param {string} search.to - to datetime
- * @return {Object} - the search parameters themselves (the delivery data)
+ * @param {string} search.courierId - courier identification
+ * @return {Object} - the search parameters
  */
 function delivery(search) {
   const schema = Joi.object({
     from: Joi.string().isoDate().required(),
     to: Joi.string().isoDate().required(),
-    courier: Joi.string().uuid({version: ['uuidv4']}),
+    courierId: Joi.string().uuid({version: ['uuidv4']}),
   });
 
   const validatedPayload = schema.validate(search);
@@ -25,7 +26,6 @@ function delivery(search) {
   return validatedPayload.value;
 };
   
-
 module.exports = {
   delivery,
 };
