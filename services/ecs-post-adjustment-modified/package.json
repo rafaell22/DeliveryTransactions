@@ -1,0 +1,22 @@
+{
+  "name": "ecs-post-adjustment-modified",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "serve": "node index.js"
+  },
+  "keywords": [
+    "delivery"
+  ],
+  "author": "Rafael",
+  "license": "MIT",
+  "dependencies": {
+    "@types/pg": "^8.6.6",
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.0.3",
+    "http-errors": "^2.0.0",
+    "joi": "^17.9.1",
+    "pg": "^8.10.0"
+  }
+}

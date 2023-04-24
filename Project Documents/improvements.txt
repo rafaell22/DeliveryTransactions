@@ -1,0 +1,18 @@
+- Improvements
+    - IAM user permissions
+    - Not following the least-rights principle
+
+- Logging
+    - Need to connect services to logging platform
+    - OpenTelemetry
+    - Jaegar
+
+- Security
+    - Implement IAM Identity Center (instead of using Access Keys
+    - Move credentials to shared secure cloud storage (Zoho Vault, etc)
+    - Learn more about VPCs and subnets; create ec2 instance to bridge connection to DB
+
+- Infrastructure
+    - Consider other availability zones (price)
+    - Consider other availability zones (replication, availability)
+

@@ -1,0 +1,23 @@
+erDiagram
+    tb_deliveries ||--o{ tb_adjustments : reveice
+    tb_deliveries ||--o{ tb_bonuses : adds
+    tb_deliveries {
+        uuid deliveryId PK
+        uuid courierId
+        timestamp createdTimestamp 
+        float value
+    }
+
+    tb_adjustments {
+        uuid adjustmentId PK
+        uuid deliveryId FK
+        timestamp modifiedTimestamp 
+        float value
+    }
+
+    tb_bonuses {
+        uuid bonusId PK
+        uuid deliveryId FK
+        timestamp modifiedTimestamp 
+        float value
+    }

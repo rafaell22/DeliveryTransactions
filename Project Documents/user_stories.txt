@@ -1,0 +1,28 @@
+As an Operations Specialist
+… I want to view all delivery transactions that happened during a period of time
+… so that I can create financial reports.
+
+As an Operations Specialist
+… I want to view all delivery transactions associated with a specific courier
+… so that I can pay improve the courier experience.
+
+As an Operations Specialist
+… I want to view the weekly courier statement for a specific courier
+… so that I can pay them.
+
+As an Operations Specialist
+… I want to view the details of a delivery transaction (delivery, bonus, adjustments)
+… so that I can improve the delivery experience.
+
+As a Courier
+… I want to be paid for the deliveries I did
+… so that I can sustain myself.
+
+As a Courier
+… I want to receive the Bonuses I earned from the customers
+… so that I can feel rewarded for my hard work.
+
+As a Courier
+… I want to be paid for the Adjustments
+… so that… (pending Adjustment definition.
+

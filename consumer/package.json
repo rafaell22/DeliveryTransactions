@@ -1,0 +1,23 @@
+{
+  "name": "sqs-event-consumer",
+  "version": "1.0.0",
+  "description": "Consume events from queue",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "receive": "node index.js"
+  },
+  "keywords": [
+    "sqs",
+    "event"
+  ],
+  "author": "Rafael",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-sqs": "^3.316.0",
+    "dotenv": "^16.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^18.16.0"
+  }
+}
